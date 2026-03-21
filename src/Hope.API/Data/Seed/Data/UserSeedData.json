@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Carlos",
+    "surname": "Rodriguez",
+    "email": "carlos@test.com",
+    "phoneNumber": "+598 91 234 567",
+    "address": "Av. 18 de Julio 1234, Montevideo"
+  },
+  {
+    "name": "Laura",
+    "surname": "Martinez",
+    "email": "laura@test.com",
+    "phoneNumber": "+598 99 876 543",
+    "address": null
+  }
+]

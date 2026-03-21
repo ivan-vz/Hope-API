@@ -1,0 +1,28 @@
+[
+  {
+    "name": "Menu Verano",
+    "availableMonths": [ "2024-12-01", "2025-01-01", "2025-02-01" ],
+    "meals": [
+      "Ensalada Cesar",
+      "Bowl de quinoa",
+      "Hamburguesa clasica"
+    ]
+  },
+  {
+    "name": "Menu Invierno",
+    "availableMonths": [ "2025-06-01", "2025-07-01", "2025-08-01" ],
+    "meals": [
+      "Milanesa napolitana",
+      "Fideos con pesto",
+      "Pollo al curry"
+    ]
+  },
+  {
+    "name": "Menu Saludable",
+    "availableMonths": [ "2025-01-01", "2025-02-01", "2025-03-01" ],
+    "meals": [
+      "Ensalada Cesar",
+      "Bowl de quinoa"
+    ]
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "total": 1600.00,
+    "deliverTo": "Av. 18 de Julio 1234, Montevideo",
+    "daysUntilDelivery": 2,
+    "userEmail": "carlos@test.com",
+    "meals": [ "Milanesa napolitana", "Hamburguesa clasica" ]
+  },
+  {
+    "total": 520.00,
+    "deliverTo": null,
+    "daysUntilDelivery": 1,
+    "userEmail": "laura@test.com",
+    "meals": [ "Ensalada Cesar" ]
+  },
+  {
+    "total": 1470.00,
+    "deliverTo": "Av. 18 de Julio 1234, Montevideo",
+    "daysUntilDelivery": 20,
+    "userEmail": "carlos@test.com",
+    "meals": [ "Fideos con pesto", "Pollo al curry" ]
+  }
+]

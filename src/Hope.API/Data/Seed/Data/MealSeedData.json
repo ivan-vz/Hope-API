@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Milanesa napolitana",
+    "description": "Milanesa de ternera con salsa de tomate, jam�n y queso derretido",
+    "price": 850.00,
+    "imageUrl": null,
+    "tags": [ "Alto en Proteina" ]
+  },
+  {
+    "name": "Ensalada Cesar",
+    "description": "Lechuga romana, croutones, parmesano y aderezo cesar",
+    "price": 520.00,
+    "imageUrl": null,
+    "tags": [ "Vegetariano" ]
+  },
+  {
+    "name": "Fideos con pesto",
+    "description": "Pasta con salsa pesto de albahaca, ajo y pimentones",
+    "price": 610.00,
+    "imageUrl": null,
+    "tags": [ "Vegetariano", "Vegano" ]
+  },
+  {
+    "name": "Pollo al curry",
+    "description": "Pechuga de pollo en salsa curry con arroz basmati",
+    "price": 790.00,
+    "imageUrl": null,
+    "tags": [ "Picante", "Alto en Proteina" ]
+  },
+  {
+    "name": "Bowl de quinoa",
+    "description": "Quinoa con verduras asadas, aguacate y aderezo de limon",
+    "price": 680.00,
+    "imageUrl": null,
+    "tags": [ "Vegetariano", "Sin Gluten", "Vegano" ]
+  },
+  {
+    "name": "Hamburguesa clasica",
+    "description": "Medallon de carne, lechuga, tomate, cebolla y papas fritas",
+    "price": 750.00,
+    "imageUrl": null,
+    "tags": []
+  }
+]

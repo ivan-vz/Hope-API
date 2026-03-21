@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Data\Seed\Data\MealSeedData.json" />
+    <Content Remove="Data\Seed\Data\MenuSeedData.json" />
+    <Content Remove="Data\Seed\Data\OrderSeedData.json" />
+    <Content Remove="Data\Seed\Data\TagSeedData.json" />
+    <Content Remove="Data\Seed\Data\UserSeedData.json" />
+  </ItemGroup>
+	
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.11">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -15,6 +23,14 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Hope.Application\Hope.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Data\Seed\Data\MealSeedData.json" />
+    <None Include="Data\Seed\Data\MenuSeedData.json" />
+    <None Include="Data\Seed\Data\OrderSeedData.json" />
+    <None Include="Data\Seed\Data\TagSeedData.json" />
+    <None Include="Data\Seed\Data\UserSeedData.json" />
   </ItemGroup>
 
 </Project>

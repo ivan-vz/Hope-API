@@ -17,11 +17,11 @@
 
         private Order() {}
 
-        public Order(decimal total, Guid userId, bool delivery, string? address, DateOnly to)
+        public Order(decimal total, Guid userId, string? address, DateOnly to)
         {
             Total = total;
             UserId = userId;
-            DeliverTo = delivery ? address : null;
+            DeliverTo = address;
             To = to;
         }
     }

@@ -1,3 +1,7 @@
+using FluentValidation;
+using Hope.Application.Interfaces;
+using Hope.Application.Services;
+using Hope.Application.Validators;
 using Hope.Infrastructure.Data;
 using Hope.Infrastructure.Data.Seed;
 using Hope.Infrastructure.Interfaces;
@@ -8,8 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
-
+// INFRASTRUCTURE
 // POSTGRESQL
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
@@ -18,6 +21,14 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 // Unit of Work
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+//APPLICATION
+builder.Services.AddScoped<IUserService, UserService>();
+
+builder.Services.AddValidatorsFromAssemblyContaining<UserInsertDtoValidator>(); //Usando la ubicacion UserInsertDtoValidator registra automaticamente el resto de validadores
+
+//API
+builder.Services.AddControllers();
 
 var app = builder.Build();
 

@@ -91,7 +91,7 @@ namespace Hope.Application.Services
             }
 
             var newMeals = new List<Meal>();
-            foreach (var mealId in dtUpdate.Meals)
+            foreach (var mealId in dtUpdate.Meals.Distinct())
             {
                 var meal = await _uow.MealRepository.GetByIdAsync(mealId, ct);
                 if (meal is null)

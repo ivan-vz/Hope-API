@@ -23,7 +23,7 @@ namespace Hope.Application.Services
 
             var meal = new Meal(dtInsert.Name, dtInsert.Description, dtInsert.Price);
 
-            foreach (var tagName in dtInsert.Tags)
+            foreach (var tagName in dtInsert.Tags.Distinct())
             {
                 var tag = await _uow.TagRepository.GetByNameAsync(tagName, ct);
                 if (tag is null)
@@ -92,7 +92,7 @@ namespace Hope.Application.Services
             {
                 meal.Tags.Clear();
 
-                foreach (var tagName in dtUpdate.Tags)
+                foreach (var tagName in dtUpdate.Tags.Distinct())
                 {
                     var tag = await _uow.TagRepository.GetByNameAsync(tagName, ct);
                     if (tag is null)

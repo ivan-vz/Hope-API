@@ -31,7 +31,7 @@ namespace Hope.Application.Services
 
             var oMeals = new List<(Meal, int)>();
             decimal total = 0;
-            foreach (var mealItem in dtInsert.Meals) 
+            foreach (var mealItem in dtInsert.Meals.Distinct()) 
             {
                 var meal = await _uow.MealRepository.GetByIdAsync(mealItem.Id, ct);
                 if (meal is null)
@@ -110,7 +110,7 @@ namespace Hope.Application.Services
 
             var oMeals = new List<(Meal, int)>();
             decimal total = 0;
-            foreach (var mealItem in dtUpdate.Meals)
+            foreach (var mealItem in dtUpdate.Meals.Distinct())
             {
                 var meal = await _uow.MealRepository.GetByIdAsync(mealItem.Id, ct);
                 if (meal is null)

@@ -26,7 +26,7 @@ namespace Hope.Infrastructure.Data.Configurations
                 }
             );
 
-            builder.HasIndex(x => x.Name).IsUnique();
+            builder.HasIndex(x => x.Name).IsUnique().HasFilter("\"IsDeleted\" = false");
             builder.HasIndex(x => x.IsDeleted);
         }
     }

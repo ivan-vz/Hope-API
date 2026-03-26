@@ -5,18 +5,18 @@ namespace Hope.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TagController(ITagService tagService, CancellationToken ct) : ControllerBase
+    public class TagController(ITagService tagService) : ControllerBase
     {
         private readonly ITagService _tagService = tagService;
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<string>>> GetAll() => Ok(await _tagService.GetAllAsync(ct));
+        public async Task<ActionResult<IReadOnlyList<string>>> GetAll(CancellationToken ct) => Ok(await _tagService.GetAllAsync(ct));
 
-        [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<string>>> GetAllActive() => Ok(await _tagService.GetAllActiveAsync(ct));
+        [HttpGet("active")]
+        public async Task<ActionResult<IReadOnlyList<string>>> GetAllActive(CancellationToken ct) => Ok(await _tagService.GetAllActiveAsync(ct));
 
         [HttpPost]
-        public async Task<ActionResult> Create(string name)
+        public async Task<ActionResult> Create([FromBody] string name, CancellationToken ct)
         {
             var validation = await _tagService.CreateAsync(name, ct);
 
@@ -24,7 +24,7 @@ namespace Hope.API.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult> Delete(string name)
+        public async Task<ActionResult> Delete([FromQuery] string name, CancellationToken ct)
         {
             var result = await _tagService.DeleteAsync(name, ct);
             return (result.IsValid) ? NoContent() : BadRequest(result.ToDictionary());

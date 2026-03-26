@@ -8,26 +8,27 @@ namespace Hope.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MealController(IMealService mealService, CancellationToken ct) : ControllerBase
+    public class MealController(IMealService mealService) : ControllerBase
     {
         private readonly IMealService _mealService = mealService;
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<MealDto>>> GetAll() => Ok(await _mealService.GetAllAsync(ct));
+        public async Task<ActionResult<IReadOnlyList<MealDto>>> GetAll(CancellationToken ct) => Ok(await _mealService.GetAllAsync(ct));
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<MealDto>> GetById(Guid id)
+        public async Task<ActionResult<MealDto>> GetById(Guid id, CancellationToken ct)
         {
             var meal = await _mealService.GetByIdAsync(id, ct);
 
             return (meal is null) ? NotFound() : Ok(meal);
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<MealDto>>> GetByTags([FromBody] ICollection<string> tags) => Ok(await _mealService.GetByTagsAsync(tags, ct));
+        [HttpGet("by-tags")]
+        public async Task<ActionResult<IReadOnlyList<MealDto>>> GetByTags([FromBody] ICollection<string> tags, CancellationToken ct) => 
+            Ok(await _mealService.GetByTagsAsync(tags, ct));
 
         [HttpPost]
-        public async Task<ActionResult<MealDto>> Create(MealInsertDto dtInser)
+        public async Task<ActionResult<MealDto>> Create(MealInsertDto dtInser, CancellationToken ct)
         {
             var (dt, validation) = await _mealService.CreateAsync(dtInser, ct);
 
@@ -35,7 +36,7 @@ namespace Hope.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(Guid id)
+        public async Task<ActionResult> Delete(Guid id, CancellationToken ct)
         {
             var validation = await _mealService.DeleteAsync(id, ct);
 
@@ -43,7 +44,7 @@ namespace Hope.API.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult<MealDto>> Update(MealUpdateDto dtUpdate)
+        public async Task<ActionResult<MealDto>> Update(MealUpdateDto dtUpdate, CancellationToken ct)
         {
             var (dt, validation) = await _mealService.UpdateAsync(dtUpdate, ct);
 

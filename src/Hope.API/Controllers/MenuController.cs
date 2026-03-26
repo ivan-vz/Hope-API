@@ -8,21 +8,23 @@ namespace Hope.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MenuController(IMenuService menuService, CancellationToken ct) : ControllerBase
+    public class MenuController(IMenuService menuService) : ControllerBase
     {
         private readonly IMenuService _menuService = menuService;
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<MenuDto>>> GetAll() => Ok(await _menuService.GetAllAsync(ct));
+        public async Task<ActionResult<IReadOnlyList<MenuDto>>> GetAll(CancellationToken ct) => Ok(await _menuService.GetAllAsync(ct));
 
-        [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<MenuDto>>> GetAllByDate([FromBody] DateOnly date) => Ok(await _menuService.GetAllByDateAsync(date, ct));
+        [HttpGet("by-date")]
+        public async Task<ActionResult<IReadOnlyList<MenuDto>>> GetAllByDate([FromQuery] DateOnly date, CancellationToken ct) => 
+            Ok(await _menuService.GetAllByDateAsync(date, ct));
 
-        [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<MenuDto>>> GetAllByTags([FromBody] ICollection<string> tags) => Ok(await _menuService.GetAllByTagsAsync(tags, ct));
+        [HttpGet("by-tags")]
+        public async Task<ActionResult<IReadOnlyList<MenuDto>>> GetAllByTags([FromBody] ICollection<string> tags, CancellationToken ct) => 
+            Ok(await _menuService.GetAllByTagsAsync(tags, ct));
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<MenuDto>> GetById(Guid id)
+        public async Task<ActionResult<MenuDto>> GetById(Guid id, CancellationToken ct)
         {
             var menu = Ok(await _menuService.GetByIdAsync(id, ct));
 
@@ -30,7 +32,7 @@ namespace Hope.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<MenuDto>> Create(MenuInsertDto dtInsert)
+        public async Task<ActionResult<MenuDto>> Create(MenuInsertDto dtInsert, CancellationToken ct)
         {
             var (dt, validation) = await _menuService.CreateAsync(dtInsert, ct);
 
@@ -38,10 +40,10 @@ namespace Hope.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(Guid id) => (await _menuService.DeleteAsync(id, ct)).IsValid ? NoContent() : NotFound();
+        public async Task<ActionResult> Delete(Guid id, CancellationToken ct) => (await _menuService.DeleteAsync(id, ct)).IsValid ? NoContent() : NotFound();
 
         [HttpPut]
-        public async Task<ActionResult<MenuDto>> Update(MenuUpdateDto updateDto)
+        public async Task<ActionResult<MenuDto>> Update(MenuUpdateDto updateDto, CancellationToken ct)
         {
             var (dt, validation) = await _menuService.UpdateAsync(updateDto, ct);
 

@@ -25,9 +25,8 @@ namespace Hope.Infrastructure.Repository
 
             return await context.Meals
             .Include(x => x.Tags)
-            .Where(x => tags
-            .Count(t => tagList
-            .Contains(t)) == tagList.Count)
+            .Where(x => x.Tags
+            .Any(t => tags.Contains(t.Name)))
             .ToListAsync(ct);
         }
     }

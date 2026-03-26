@@ -24,7 +24,7 @@ namespace Hope.Infrastructure.Data.Configurations
                 y => y.HasKey(x => new { x.MealId, x.TagId })
             );
 
-            builder.HasIndex(x => x.Name).IsUnique();
+            builder.HasIndex(x => x.Name).IsUnique().HasFilter("\"IsDeleted\" = false");
             builder.HasIndex(x => x.IsDeleted);
         }
     }

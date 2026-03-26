@@ -22,7 +22,7 @@ namespace Hope.Application.Services
             if (!validation.IsValid) return (null, validation);
 
             var meals = new List<Meal>();
-            foreach (var mealId in dtInsert.Meals) 
+            foreach (var mealId in dtInsert.Meals.Distinct()) 
             {
                 var meal = await _uow.MealRepository.GetByIdAsync(mealId, ct);
                 if(meal is null)

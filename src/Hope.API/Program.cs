@@ -59,11 +59,13 @@ builder.Services.AddValidatorsFromAssemblyContaining<UserInsertDtoValidator>(); 
 //API
 builder.Services.AddControllers();
 
+builder.Services.AddCors();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 
-app.UseHttpsRedirection();
+app.UseCors(opt => opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200", "https://localhost:4200"));
 
 app.UseMiddleware<ExceptionMiddleware>();
 

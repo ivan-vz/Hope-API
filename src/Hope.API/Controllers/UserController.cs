@@ -25,6 +25,7 @@ namespace Hope.API.Controllers
             return (user is null) ? NotFound() : Ok(user);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<ActionResult<LoggedDto>> Create(UserInsertDto dtInsert, CancellationToken ct)
         {

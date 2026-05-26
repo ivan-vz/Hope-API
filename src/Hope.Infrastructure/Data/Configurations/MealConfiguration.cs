@@ -23,6 +23,8 @@ namespace Hope.Infrastructure.Data.Configurations
                 y => y.HasOne(x => x.Meal).WithMany().HasForeignKey(x => x.MealId),
                 y => y.HasKey(x => new { x.MealId, x.TagId })
             );
+            
+            builder.HasMany(x => x.Ingredients).WithOne(x => x.Meal).HasForeignKey(x => x.MealId).OnDelete(DeleteBehavior.Cascade);
 
             builder.HasIndex(x => x.Name).IsUnique().HasFilter("\"IsDeleted\" = false");
             builder.HasIndex(x => x.IsDeleted);

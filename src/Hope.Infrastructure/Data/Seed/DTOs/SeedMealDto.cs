@@ -7,5 +7,6 @@
         public required decimal Price { get; init; }
         public string? ImageUrl { get; init; }
         public required ICollection<string> Tags { get; init; }
+        public required ICollection<SeedIngredientItem> Ingredients { get; set; }
     }
 }

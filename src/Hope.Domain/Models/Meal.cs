@@ -1,4 +1,6 @@
-﻿namespace Hope.Domain.Models
+﻿using Hope.Domain.Models.Auxiliary;
+
+namespace Hope.Domain.Models
 {
     public class Meal(string name, string description, decimal price)
     {
@@ -11,6 +13,7 @@
         public bool IsDeleted { get; set; } = false;
 
         // Navigation Properties
+        public ICollection<MealIngredient> Ingredients { get; set; } = [];
         public ICollection<Menu> Menu { get; set; } = [];
         public ICollection<Tag> Tags { get; set; } = [];
     }

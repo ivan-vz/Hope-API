@@ -1,44 +1,192 @@
 [
   {
     "name": "Milanesa napolitana",
-    "description": "Milanesa de ternera con salsa de tomate, jam�n y queso derretido",
+    "description": "Milanesa de ternera con salsa de tomate, jamon y queso derretido",
     "price": 850.00,
     "imageUrl": null,
-    "tags": [ "Alto en Proteina" ]
+    "tags": [ "Alto en Proteina" ],
+    "ingredients": [
+      {
+        "name": "Carne de ternera",
+        "quantity": 0.3
+      },
+      {
+        "name": "Pan rallado",
+        "quantity": 0.1
+      },
+      {
+        "name": "Huevo",
+        "quantity": 0.1
+      },
+      {
+        "name": "Salsa de tomate",
+        "quantity": 0.1
+      },
+      {
+        "name": "Jamon",
+        "quantity": 0.08
+      },
+      {
+        "name": "Queso mozzarella",
+        "quantity": 0.1
+      }
+    ]
   },
   {
     "name": "Ensalada Cesar",
     "description": "Lechuga romana, croutones, parmesano y aderezo cesar",
     "price": 520.00,
     "imageUrl": null,
-    "tags": [ "Vegetariano" ]
+    "tags": [ "Vegetariano" ],
+    "ingredients": [
+      {
+        "name": "Lechuga romana",
+        "quantity": 0.2
+      },
+      {
+        "name": "Croutones",
+        "quantity": 0.05
+      },
+      {
+        "name": "Queso parmesano",
+        "quantity": 0.04
+      },
+      {
+        "name": "Aderezo cesar",
+        "quantity": 0.05
+      }
+    ]
   },
   {
     "name": "Fideos con pesto",
     "description": "Pasta con salsa pesto de albahaca, ajo y pimentones",
     "price": 610.00,
     "imageUrl": null,
-    "tags": [ "Vegetariano", "Vegano" ]
+    "tags": [ "Vegetariano", "Vegano" ],
+    "ingredients": [
+      {
+        "name": "Fideos",
+        "quantity": 0.2
+      },
+      {
+        "name": "Albahaca",
+        "quantity": 0.03
+      },
+      {
+        "name": "Ajo",
+        "quantity": 0.01
+      },
+      {
+        "name": "Pimentones",
+        "quantity": 0.05
+      },
+      {
+        "name": "Aceite de oliva",
+        "quantity": 0.04
+      },
+      {
+        "name": "Queso parmesano",
+        "quantity": 0.03
+      }
+    ]
   },
   {
     "name": "Pollo al curry",
     "description": "Pechuga de pollo en salsa curry con arroz basmati",
     "price": 790.00,
     "imageUrl": null,
-    "tags": [ "Picante", "Alto en Proteina" ]
+    "tags": [ "Picante", "Alto en Proteina" ],
+    "ingredients": [
+      {
+        "name": "Pechuga de pollo",
+        "quantity": 0.25
+      },
+      {
+        "name": "Curry en polvo",
+        "quantity": 0.01
+      },
+      {
+        "name": "Leche de coco",
+        "quantity": 0.15
+      },
+      {
+        "name": "Arroz basmati",
+        "quantity": 0.15
+      },
+      {
+        "name": "Cebolla",
+        "quantity": 0.05
+      },
+      {
+        "name": "Ajo",
+        "quantity": 0.01
+      }
+    ]
   },
   {
     "name": "Bowl de quinoa",
     "description": "Quinoa con verduras asadas, aguacate y aderezo de limon",
     "price": 680.00,
     "imageUrl": null,
-    "tags": [ "Vegetariano", "Sin Gluten", "Vegano" ]
+    "tags": [ "Vegetariano", "Sin Gluten", "Vegano" ],
+    "ingredients": [
+      {
+        "name": "Quinoa",
+        "quantity": 0.15
+      },
+      {
+        "name": "Zucchini",
+        "quantity": 0.1
+      },
+      {
+        "name": "Pimiento rojo",
+        "quantity": 0.08
+      },
+      {
+        "name": "Cebolla morada",
+        "quantity": 0.05
+      },
+      {
+        "name": "Aguacate",
+        "quantity": 0.1
+      },
+      {
+        "name": "Jugo de limon",
+        "quantity": 0.02
+      },
+      {
+        "name": "Aceite de oliva",
+        "quantity": 0.02
+      }
+    ]
   },
   {
     "name": "Hamburguesa clasica",
     "description": "Medallon de carne, lechuga, tomate, cebolla y papas fritas",
     "price": 750.00,
     "imageUrl": null,
-    "tags": []
+    "tags": [],
+    "ingredients": [
+      {
+        "name": "Medallón de carne",
+        "quantity": 0.2
+      },
+      {
+        "name": "Lechuga",
+        "quantity": 0.04
+      },
+      {
+        "name": "Tomate",
+        "quantity": 0.06
+      },
+      {
+        "name": "Cebolla",
+        "quantity": 0.04
+      },
+      {
+        "name": "Papa",
+        "quantity": 0.2
+      }
+    ]
   }
 ]

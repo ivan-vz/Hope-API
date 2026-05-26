@@ -1,7 +1,7 @@
 [
   {
     "total": 1600.00,
-    "address": "Av. 18 de Julio 1234, Montevideo",
+    "address": "Av. 18 de Julio, 1234, Montevideo",
     "daysUntilDelivery": 2,
     "userEmail": "carlos@test.com",
     "meals": [
@@ -18,7 +18,7 @@
   },
   {
     "total": 520.00,
-    "address": "Av. 18 de Julio 1234, Montevideo",
+    "address": "Av. 18 de Julio, 1234, Montevideo",
     "daysUntilDelivery": 1,
     "userEmail": "laura@test.com",
     "meals": [
@@ -31,7 +31,7 @@
   },
   {
     "total": 1470.00,
-    "address": "Av. 18 de Julio 1234, Montevideo",
+    "address": "Av. 18 de Julio, 1234, Montevideo",
     "daysUntilDelivery": 20,
     "userEmail": "carlos@test.com",
     "meals": [

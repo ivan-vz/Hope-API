@@ -1,0 +1,126 @@
+[
+  {
+    "name": "Carne de ternera",
+    "isLiquid": false
+  },
+  {
+    "name": "Carne de res",
+    "isLiquid": false
+  },
+  {
+    "name": "Pechuga de pollo",
+    "isLiquid": false
+  },
+  {
+    "name": "Jamon",
+    "isLiquid": false
+  },
+  {
+    "name": "Queso mozzarella",
+    "isLiquid": false
+  },
+  {
+    "name": "Queso parmesano",
+    "isLiquid": false
+  },
+  {
+    "name": "Salsa de tomate",
+    "isLiquid": true
+  },
+  {
+    "name": "Lechuga romana",
+    "isLiquid": false
+  },
+  {
+    "name": "Croutones",
+    "isLiquid": false
+  },
+  {
+    "name": "Aderezo cesar",
+    "isLiquid": true
+  },
+  {
+    "name": "Fideos",
+    "isLiquid": false
+  },
+  {
+    "name": "Albahaca",
+    "isLiquid": false
+  },
+  {
+    "name": "Ajo",
+    "isLiquid": false
+  },
+  {
+    "name": "Pimentones",
+    "isLiquid": false
+  },
+  {
+    "name": "Aceite de oliva",
+    "isLiquid": true
+  },
+  {
+    "name": "Curry en polvo",
+    "isLiquid": false
+  },
+  {
+    "name": "Arroz basmati",
+    "isLiquid": false
+  },
+  {
+    "name": "Leche de coco",
+    "isLiquid": true
+  },
+  {
+    "name": "Quinoa",
+    "isLiquid": false
+  },
+  {
+    "name": "Zucchini",
+    "isLiquid": false
+  },
+  {
+    "name": "Pimiento rojo",
+    "isLiquid": false
+  },
+  {
+    "name": "Cebolla morada",
+    "isLiquid": false
+  },
+  {
+    "name": "Aguacate",
+    "isLiquid": false
+  },
+  {
+    "name": "Jugo de limon",
+    "isLiquid": true
+  },
+  {
+    "name": "Pan rallado",
+    "isLiquid": false
+  },
+  {
+    "name": "Huevo",
+    "isLiquid": false
+  },
+  {
+    "name": "Medallon de carne",
+    "isLiquid": false
+  },
+  {
+    "name": "Lechuga",
+    "isLiquid": false
+  },
+  {
+    "name": "Tomate",
+    "isLiquid": false
+  },
+  {
+    "name": "Cebolla",
+    "isLiquid": false
+  },
+  {
+    "name": "Papa",
+    "isLiquid": false
+  }
+]

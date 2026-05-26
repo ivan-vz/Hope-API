@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Hope.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -12,9 +13,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Hope.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260526004323_ChefUpdated")]
+    partial class ChefUpdated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,7 +42,7 @@ namespace Hope.Infrastructure.Data.Migrations
 
                     b.HasIndex("IngredientId");
 
-                    b.ToTable("MealIngredient", (string)null);
+                    b.ToTable("MealIngredient");
                 });
 
             modelBuilder.Entity("Hope.Domain.Models.Auxiliary.MealMenu", b =>
@@ -54,7 +57,7 @@ namespace Hope.Infrastructure.Data.Migrations
 
                     b.HasIndex("MealId");
 
-                    b.ToTable("MealMenu", (string)null);
+                    b.ToTable("MealMenu");
                 });
 
             modelBuilder.Entity("Hope.Domain.Models.Auxiliary.MealTag", b =>
@@ -69,7 +72,7 @@ namespace Hope.Infrastructure.Data.Migrations
 
                     b.HasIndex("TagId");
 
-                    b.ToTable("MealTag", (string)null);
+                    b.ToTable("MealTag");
                 });
 
             modelBuilder.Entity("Hope.Domain.Models.Auxiliary.OrderMeal", b =>
@@ -87,7 +90,7 @@ namespace Hope.Infrastructure.Data.Migrations
 
                     b.HasIndex("MealId");
 
-                    b.ToTable("OrdersMeals", (string)null);
+                    b.ToTable("OrdersMeals");
                 });
 
             modelBuilder.Entity("Hope.Domain.Models.Ingredient", b =>
@@ -106,7 +109,7 @@ namespace Hope.Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Ingredients", (string)null);
+                    b.ToTable("Ingredients");
                 });
 
             modelBuilder.Entity("Hope.Domain.Models.Meal", b =>
@@ -147,7 +150,7 @@ namespace Hope.Infrastructure.Data.Migrations
                         .IsUnique()
                         .HasFilter("\"IsDeleted\" = false");
 
-                    b.ToTable("Meals", (string)null);
+                    b.ToTable("Meals");
                 });
 
             modelBuilder.Entity("Hope.Domain.Models.Menu", b =>
@@ -179,7 +182,7 @@ namespace Hope.Infrastructure.Data.Migrations
                         .IsUnique()
                         .HasFilter("\"IsDeleted\" = false");
 
-                    b.ToTable("Menus", (string)null);
+                    b.ToTable("Menus");
                 });
 
             modelBuilder.Entity("Hope.Domain.Models.Order", b =>
@@ -224,7 +227,7 @@ namespace Hope.Infrastructure.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Orders", (string)null);
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("Hope.Domain.Models.Tag", b =>
@@ -251,7 +254,7 @@ namespace Hope.Infrastructure.Data.Migrations
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("Tags", (string)null);
+                    b.ToTable("Tags");
                 });
 
             modelBuilder.Entity("Hope.Domain.Models.User", b =>

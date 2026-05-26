@@ -6,6 +6,7 @@ using Hope.Application.DTOs.Update;
 using Hope.Application.Extensions;
 using Hope.Application.Interfaces;
 using Hope.Domain.Models;
+using Hope.Domain.Models.Auxiliary;
 using Hope.Infrastructure.Interfaces;
 
 namespace Hope.Application.Services
@@ -38,7 +39,37 @@ namespace Hope.Application.Services
                 meal.Tags.Add(tag);
             }
 
+            var mIngredients = new List<(Ingredient, int)>();
+            foreach(var ingredientItem in dtInsert.Ingredients.Distinct())
+            {
+                var ingredient = await _uow.IngredientRepository.GetByIdAsync(ingredientItem.Id, ct);
+                if ( ingredient is null)
+                {
+                    validation.Errors.Add(new ValidationFailure
+                        (
+                        "Ingredient Id", $"Ingredient with id {ingredientItem.Id} not found"
+                        ));
+                    continue;
+                }
+
+                mIngredients.Add((ingredient, ingredientItem.Quantity));
+            }
+
             if (!validation.IsValid) return (null, validation);
+
+            foreach (var (ingredient, quantity) in mIngredients) 
+            {
+                var mealIngredient = new MealIngredient
+                {
+                    MealId = meal.Id,
+                    Meal = meal,
+                    IngredientId = ingredient.Id,
+                    Ingredient = ingredient,
+                    Quantity = quantity
+                };
+
+                meal.Ingredients.Add(mealIngredient);
+            }
 
             _uow.MealRepository.Add(meal);
             await _uow.Complete();

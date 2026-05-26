@@ -13,7 +13,8 @@ namespace Hope.Infrastructure.Data.Seed
         {
             await SeedRoles(roleManager);
             var tags = await SeedTags(context);
-            var meals = await SeedMeals(context, tags);
+            var ingredients = await SeedIngredients(context);
+            var meals = await SeedMeals(context, tags, ingredients);
             var users = await SeedUsers(userManager);
             await SeedMenus(context, meals);
             await SeedOrders(context, users, meals);
@@ -45,7 +46,33 @@ namespace Hope.Infrastructure.Data.Seed
             return tags;
         }
 
-        private static async Task<List<Meal>> SeedMeals(ApplicationDbContext context, List<Tag> tags)
+        private static async Task<List<Ingredient>> SeedIngredients(ApplicationDbContext context)
+        {
+            var ingredients = new List<Ingredient>();
+
+            if (await context.Ingredients.AnyAsync()) return ingredients;
+
+            var data = await File.ReadAllTextAsync("Data/Seed/Data/IngredientSeedData.json");
+            var ingData = JsonSerializer.Deserialize<List<SeedIngredientDto>>(data, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            if (ingData is null)
+            {
+                Console.WriteLine("No ingredients in seed data");
+                return ingredients;
+            }
+
+            foreach (var id in ingData)
+            {
+                var ing = new Ingredient(id.Name, id.IsLiquid);
+                
+                context.Ingredients.Add(ing);
+                ingredients.Add(ing);
+            }
+
+            await context.SaveChangesAsync();
+            return ingredients;
+        }
+
+        private static async Task<List<Meal>> SeedMeals(ApplicationDbContext context, List<Tag> tags, List<Ingredient> ingredients)
         {
             var meals = new List<Meal>();
             if (await context.Meals.AnyAsync()) return meals;
@@ -72,6 +99,27 @@ namespace Hope.Infrastructure.Data.Seed
                     }
 
                     meal.Tags.Add(tag);
+                }
+
+                foreach (var(name, quantity) in md.Ingredients)
+                {
+                    var ing = ingredients.SingleOrDefault(x => x.Name == name);
+                    if (ing is null)
+                    {
+                        Console.WriteLine($"Ingredient '{name}' not found for meal '{md.Name}'");
+                        continue;
+                    }
+
+                    var mealIngredient = new MealIngredient
+                    {
+                        Quantity = quantity,
+                        MealId = meal.Id,
+                        Meal = meal,
+                        IngredientId = ing.Id,
+                        Ingredient = ing
+                    };
+
+                    meal.Ingredients.Add(mealIngredient);
                 }
 
                 context.Meals.Add(meal);

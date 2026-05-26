@@ -8,6 +8,7 @@ namespace Hope.Infrastructure.Repository
     {
         private IUserRepository? _userRepository;
         private IMenuRepository? _menuRepository;
+        private IIngredientRepository? _ingredientRepository;
         private IMealRepository? _mealRepository;
         private IOrderRepository? _orderRepository;
         private ITagRepository? _tagRepository;
@@ -15,6 +16,8 @@ namespace Hope.Infrastructure.Repository
         public IUserRepository UserRepository => _userRepository ??= new UserRepository(context);
 
         public IMenuRepository MenuRepository => _menuRepository ??= new MenuRepository(context);
+
+        public IIngredientRepository IngredientRepository => _ingredientRepository ??= new IngredientRepository(context);
 
         public IMealRepository MealRepository => _mealRepository ??= new MealRepository(context);
 
